@@ -70,6 +70,11 @@ jobs:
       - name: (Windows) Install dependencies
         if: matrix.os == 'windows-latest'
         uses: seanmiddleditch/gha-setup-ninja@v1
+      - name: (Windows) Install dependencies VS
+        if: matrix.os == 'windows-latest'
+        uses: ilammy/msvc-dev-cmd@v1    
+        with:
+          vsversion: 2019
       - name: (Ubuntu) Install dependencies
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt install -y cmake ninja-build libxcursor-dev libxi-dev libgl1-mesa-dev
